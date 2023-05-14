@@ -1,16 +1,12 @@
 # roll_a_dice
 
-A new Flutter project.
+Roll a dice is all you need to play board games with your friends. \
+It's a simple app that allows you to roll a dice, flip a coin, draw a card and more to come.
 
-## Getting Started
+### Prerequisite : Install Flutter
 
-This project is a starting point for a Flutter application.
+[https://docs.flutter.dev/get-started/install](https://docs.flutter.dev/get-started/install)
 
-A few resources to get you started if this is your first Flutter project:
+### Launch the app
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```flutter run```
