@@ -13,4 +13,4 @@ It's a simple app that allows you to roll a dice, flip a coin, draw a card and m
 
 ### Dice V0
 
-![dice](screenshots/dice_v0.gif)
+![dice](screenshots/Dice_v0.gif)
