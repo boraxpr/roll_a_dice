@@ -1,7 +1,7 @@
 # roll_a_dice
 
 Roll a dice is all you need to play board games with your friends. \
-It's a simple app that allows you to roll a dice, flip a coin, draw a card and more to come.
+It's a simple app that allows you to roll a dice, flip a coin, draw a card and more to come. \
 
 ### Prerequisite : Install Flutter
 
@@ -10,6 +10,8 @@ It's a simple app that allows you to roll a dice, flip a coin, draw a card and m
 ### Launch the app
 
 ```flutter run```
+### Dice V1
+![dice](screenshots/Dice_v1.gif)
 
 ### Dice V0
 
