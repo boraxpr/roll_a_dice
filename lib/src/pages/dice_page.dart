@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,9 +19,6 @@ class DicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Roll a dice'),
-      ),
       //Dice
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -29,18 +28,31 @@ class DicePage extends StatelessWidget {
             children: [
               BlocBuilder<DiceBloc, DiceState>(
                 builder: (context, state) {
-                  return SizedBox(
-                    child: ElevatedButton(
-                      onPressed: state.status == FetchStatus.done
-                          ? () => context.read<DiceBloc>().add(DiceRollEvent())
-                          : null,
-                      child: Text(
-                        dices.elementAt(state.diceFace),
-                        style: const TextStyle(
-                          fontSize: 150,
+                  return Row(
+                    children: [
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                            state.status == FetchStatus.done
+                                ? Colors.black
+                                : //randomize color
+                                Colors.primaries[Random().nextInt(
+                                    Colors.primaries.length - 1,
+                                  )],
+                          ),
+                        ),
+                        onPressed: state.status == FetchStatus.done
+                            ? () =>
+                                context.read<DiceBloc>().add(DiceRollEvent())
+                            : null,
+                        child: Text(
+                          dices.elementAt(state.diceFace),
+                          style: const TextStyle(
+                            fontSize: 150,
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   );
                 },
               ),

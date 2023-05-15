@@ -25,7 +25,8 @@ class DiceBloc extends Bloc<DiceEvent, DiceState> {
           ),
         );
         for (int i = 0; i < dices.length; i++) {
-          await Future.delayed(const Duration(milliseconds: 100));
+          int time = 50 + i * 80;
+          await Future.delayed(Duration(milliseconds: time));
           if (i == dices.length - 1) {
             emit(
               state.copyWith(
