@@ -11,8 +11,9 @@ It's a simple app that allows you to roll a dice, flip a coin, draw a card and m
 
 ```flutter run```
 ### Dice V1
-![dice](screenshots/Dice_v1.gif)
+
+<img src="screenshots/Dice_v1.gif" alt= “” width=25% height=25%>
 
 ### Dice V0
 
-![dice](screenshots/Dice_v0.gif)
+<img src="screenshots/Dice_v0.gif" alt= “” width=25% height=25%>
