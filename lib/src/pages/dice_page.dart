@@ -3,45 +3,51 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/dice_bloc.dart';
 
+Set<String> dices = {
+  '⚀',
+  '⚁',
+  '⚂',
+  '⚃',
+  '⚄',
+  '⚅',
+};
+
 class DicePage extends StatelessWidget {
   const DicePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Roll a dice'),
+      ),
       //Dice
-      body: Center(
-        child: BlocBuilder<DiceBloc, DiceState>(
-          builder: (context, state) {
-            return SizedBox(
-              child: state.status == FetchStatus.rolling
-                  ? _buildLoadingView()
-                  : Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextButton(
-                          onPressed: () {
-                            context.read<DiceBloc>().add(DiceRollEvent());
-                          },
-                          child: Text(
-                            state.diceFace.toString(),
-                            style: const TextStyle(fontSize: 100),
-                          ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              BlocBuilder<DiceBloc, DiceState>(
+                builder: (context, state) {
+                  return SizedBox(
+                    child: ElevatedButton(
+                      onPressed: state.status == FetchStatus.done
+                          ? () => context.read<DiceBloc>().add(DiceRollEvent())
+                          : null,
+                      child: Text(
+                        dices.elementAt(state.diceFace),
+                        style: const TextStyle(
+                          fontSize: 150,
                         ),
-                      ],
+                      ),
                     ),
-            );
-          },
-        ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
-
-  _buildLoadingView() => Container(
-        alignment: Alignment.center,
-        color: Colors.white,
-        width: double.infinity,
-        height: double.infinity,
-        child: CircularProgressIndicator(),
-      );
 }

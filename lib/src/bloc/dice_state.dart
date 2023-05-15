@@ -4,7 +4,7 @@ enum FetchStatus { rolling, done }
 
 class DiceState extends Equatable {
   const DiceState({
-    this.diceFace = 1,
+    this.diceFace = 0,
     this.status = FetchStatus.done,
   });
   final int diceFace;
